@@ -2,7 +2,6 @@
 Measuring AI-generated vs human-written unit test quality using mutation testing
 
 ## 1. Project Title
-The full research topic written clearly at the top.
 
 Evaluating the Quality of AI-Generated Unit Tests 
 Using Mutation Coverage Compared to Human-Written Tests
@@ -10,25 +9,39 @@ Using Mutation Coverage Compared to Human-Written Tests
 ---
 
 ## 2. Research Question
-One sentence. The question your experiment answers.
+
 Do AI-generated unit tests detect injected faults as 
 effectively as human-written tests?
 
 ---
 
-## 3. Overview / What This Is
-2-3 sentences explaining what the project does in plain English. Not technical — just clear enough for anyone reading it including your supervisor.
-
----
-
 ## 4. Project Structure
-The directory tree showing what each folder contains. Your supervisor should be able to navigate the repo without asking you.
+
+research_project/
+├── projects/
+│   ├── project_a/                 # cloned repo — untouched
+│   │   ├── setup.cfg              # mutmut config added here
+│   │   ├── tests/                 # human tests — never modified
+│   │   └── ai_tests/              # AI tests — isolated here
+│   ├── project_b/
+│   └── project_c/
+├── scripts/
+│   ├── vet_project.py
+│   ├── generate_tests.py
+│   ├── validate_tests.py
+│   ├── extract_scores.py
+│   └── record_metadata.py
+├── results/
+│   ├── results.csv
+│   ├── metadata.json
+│   └── raw_ai_outputs/            # raw LLM responses before cleaning
+├── requirements.txt
+└── README.md
 
 ---
 
 ## 5. Dataset
-The 3 open source projects used, with links to their GitHub repos and which specific modules were tested.
-
+The 3 open source projects
 ---
 
 ## 6. How to Reproduce
@@ -63,11 +76,13 @@ A simple table showing the final mutation scores:
 ---
 
 ## 9. Authors
-Your name and your partner's name and your institution/course.
+- Md Ziaur Reza
+- Kainat
+
 
 ---
 
 ## 10. Supervisor
-Name of your supervisor and the course or department this research is for
+
 
 n?
