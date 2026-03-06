@@ -17,26 +17,25 @@ effectively as human-written tests?
 
 ## 4. Project Structure
 
-research_project/
-├── projects/
-│   ├── project_a/                 # cloned repo — untouched
-│   │   ├── setup.cfg              # mutmut config added here
-│   │   ├── tests/                 # human tests — never modified
-│   │   └── ai_tests/              # AI tests — isolated here
-│   ├── project_b/
-│   └── project_c/
-├── scripts/
-│   ├── vet_project.py
-│   ├── generate_tests.py
-│   ├── validate_tests.py
-│   ├── extract_scores.py
-│   └── record_metadata.py
-├── results/
-│   ├── results.csv
-│   ├── metadata.json
-│   └── raw_ai_outputs/            # raw LLM responses before cleaning
-├── requirements.txt
-└── README.md
+- projects/
+  - project_a/ — cloned repo, untouched
+    - setup.cfg — mutmut config
+    - tests/ — human tests, never modified
+    - ai_tests/ — AI generated tests, isolated
+  - project_b/
+  - project_c/
+- scripts/
+  - vet_project.py
+  - generate_tests.py
+  - validate_tests.py
+  - extract_scores.py
+  - record_metadata.py
+- results/
+  - results.csv
+  - metadata.json
+  - raw_ai_outputs/ — raw LLM responses before cleaning
+- requirements.txt
+- README.md
 
 ---
 
