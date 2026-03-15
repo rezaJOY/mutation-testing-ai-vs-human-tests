@@ -76,7 +76,6 @@ A simple table showing the final mutation scores:
 
 ## 9. Authors
 - Md Ziaur Reza
-- Kainat
 
 
 ---
