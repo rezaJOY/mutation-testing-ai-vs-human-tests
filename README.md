@@ -226,7 +226,7 @@ echo $GROQ_API_KEY  # must not be empty
 ```bash
 git clone https://github.com/dbader/schedule projects/schedule
 git clone https://github.com/mahmoud/boltons projects/boltons
-[git clone https://github.com/jmespath/jmespath.py projects/jmespath.py](https://github.com/jmespath/jmespath.py projects/jmespath.py)
+git clone https://github.com/jmespath/jmespath.py projects/jmespath.py
 ```
 
 ### 6. Install target projects in editable mode
@@ -335,6 +335,36 @@ rm projects/jmespath.py/.mutmut-cache
 
 ---
 
+## Pipeline Outputs
+
+Every file produced by the pipeline and which phase generates it:
+
+```
+results/
+├── metadata.json                     ← Phase 2: tool versions + commit hashes
+├── raw_ai_outputs/
+│   ├── __init___raw_attempt0.txt     ← Phase 4: raw LLM response (schedule)
+│   ├── strutils_raw_attempt0.txt     ← Phase 4: raw LLM response (boltons)
+│   └── lexer_raw_attempt0.txt        ← Phase 4: raw LLM response (jmespath)
+├── schedule_human.mutmut-cache       ← Phase 6: archived mutmut cache
+├── schedule_ai.mutmut-cache          ← Phase 7: archived mutmut cache
+├── boltons_human.mutmut-cache        ← Phase 6
+├── boltons_ai.mutmut-cache           ← Phase 7
+├── jmespath_human.mutmut-cache       ← Phase 6
+├── jmespath_ai.mutmut-cache          ← Phase 7
+└── results.csv                       ← Phase 6 & 7: final mutation scores
+
+projects/
+├── schedule/ai_tests/
+│   └── test_ai_schedule.py           ← Phase 4: cleaned AI-generated tests
+├── boltons/ai_tests/
+│   └── test_ai_strutils.py           ← Phase 4
+└── jmespath.py/ai_tests/
+    └── test_ai_lexer.py              ← Phase 4
+```
+
+---
+
 ## Results
 
 *Status: pending — mutmut runs not yet complete.*
@@ -352,6 +382,18 @@ project,module,run_type,mutation_score_pct,killed,survived,timeout,suspicious,to
 ```
 
 Each project produces two rows — one for `run_type=human`, one for `run_type=ai`.
+
+*Example of a fully populated `results.csv` (actual values will differ):*
+
+```
+project,module,run_type,mutation_score_pct,killed,survived,timeout,suspicious,total
+schedule,schedule/__init__.py,human,74.5,149,45,6,0,200
+schedule,schedule/__init__.py,ai,61.0,122,72,6,0,200
+boltons,boltons/strutils.py,human,68.0,170,75,5,0,250
+boltons,boltons/strutils.py,ai,57.2,143,102,5,0,250
+jmespath,jmespath/lexer.py,human,71.0,178,65,7,0,250
+jmespath,jmespath/lexer.py,ai,63.0,158,85,7,0,250
+```
 
 ---
 
