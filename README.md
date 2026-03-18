@@ -226,7 +226,7 @@ echo $GROQ_API_KEY  # must not be empty
 ```bash
 git clone https://github.com/dbader/schedule projects/schedule
 git clone https://github.com/mahmoud/boltons projects/boltons
-git clone https://github.com/jmespath/jmespath.py projects/jmespath.py
+[git clone https://github.com/jmespath/jmespath.py projects/jmespath.py](https://github.com/jmespath/jmespath.py projects/jmespath.py)
 ```
 
 ### 6. Install target projects in editable mode
