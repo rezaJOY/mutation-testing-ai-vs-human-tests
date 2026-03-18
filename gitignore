@@ -1,0 +1,33 @@
+# API keys — never commit
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Mutmut cache — extracted per run, raw file not needed in repo
+.mutmut-cache
+
+# Pytest
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Cloned target projects — too large for the repo, cloned by reproducer
+projects/schedule/
+projects/boltons/
+projects/jmespath.py/
